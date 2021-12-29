@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>learning Skeleton Animation</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="grid">
+        <div class="card" id="card">
+            <div class="header">
+                <img class="header-img skeleton">
+                <div class="title" data-title="">
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                </div>
+            </div>
+            <div data-body>
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const grid = document.querySelector('.grid');
+    const card = document.getElementById('card');
+    for (i = 0; i < 6; i++) {
+        grid.append(card.cloneNode(true));
+    }
+
+    setTimeout(() => {
+        grid.innerHTML = '';
+        for (i = 0; i < 10; i++) {
+            const div = card.cloneNode(true);
+            const title = "Lorem ipsum dolor sit, amet!";
+            const body = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus soluta ratione doloribus laudantium, recusandae aperiam quia dolorem officiis neque sunt.";
+
+            div.querySelector('[data-title]').textContent = title;
+            div.querySelector('.header-img').src = './forever.jpg';
+            div.querySelector('[data-body]').textContent = body;
+            grid.append(div);
+        }
+    }, 3000)
+
+</script>
+
+</html>
